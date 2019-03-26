@@ -1,0 +1,23 @@
+﻿provider: trello
+policies:
+  - name: create-weekly-tasks
+    resource: board
+    filters:
+    - name: personal
+      resource: list
+      filters:
+        - name: doing
+          actions:
+		  - type: addcard
+		    params: {
+			  name: Work Out,
+			  due: "today@8:00",
+			  labels: "today,home"
+		    }
+		  - type: addcard
+		    params: {
+			  name: Personal Scripture Study,
+			  due: "today@8:00",
+			  labels: today,
+			  members: tannerbarlow
+		    }

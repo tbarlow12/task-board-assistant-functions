@@ -1,0 +1,26 @@
+﻿provider: trello
+policies:
+  - name: archive-done-tasks
+    resource: board
+    filters:
+      - name: personal
+    children:
+      - resource: list
+        filters:
+          - name: done
+        children:
+          - resource: card
+            actions:
+              - type: archive
+  - name: archive-cards-in-done
+    resource: board
+    filters:
+      - name: work
+    children:
+      - resource: list
+        filters:
+          - name: done
+        children:
+          - resource: card
+            actions:
+              - type: archive

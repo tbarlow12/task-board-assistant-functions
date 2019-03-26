@@ -1,0 +1,61 @@
+﻿provider: trello
+policies:
+  - name: create-weekly-tasks
+    resource: board
+    filters:
+      - name: personal
+    children:
+      resource: list
+      filters:
+        - name: this week
+          actions:
+		  - type: addcard
+		    params: {
+			  name: Visit someone in the ward,
+			  due: "Tuesday@20:00",
+		    }
+		  - type: addcard
+		    params: {
+			  name: Make sure speaking assignments have been made,
+			  due: "Sunday@20:00",
+		    }      
+		  - type: addcard
+		    params: {
+			  name: Make sure sacrament meeting spreadsheet is up to date,
+			  due: "Friday@8:30",
+		    }
+		  - type: addcard
+		    params: {
+			  name: Plan a date night,
+			  due: "Monday@12:30",
+		    }
+		  - type: addcard
+		    params: {
+			  name: Send out the ward newsletter,
+			  due: "Tuesday@8:30",
+		    }
+		  - type: addcard
+		    params: {
+			  name: Call a parent,
+			  due: "Monday@15:00",
+		    }
+		  - type: addcard
+		    params: {
+			  name: Call a sibling,
+			  due: "Tuesday@15:00",
+		    }
+		  - type: addcard
+		    params: {
+			  name: Reach out to a companion/friend from mission,
+			  due: "Wednesday@15:00",
+		    }
+		  - type: addcard
+		    params: {
+			  name: Call a friend,
+			  due: "Thursday@15:00",
+		    }
+		  - type: addcard
+		    params: {
+			  name: Call a mentor/contact in your network,
+			  due: "Friday@15:00",
+		    }
