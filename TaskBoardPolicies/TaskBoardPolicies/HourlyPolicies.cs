@@ -19,7 +19,7 @@ namespace TaskBoardPolicies
         /// <param name="log"></param>
         /// <param name="context"></param>
         [FunctionName("HourlyPolicies")]
-        public static void Run([TimerTrigger("0 30 * * * *")]TimerInfo myTimer, ILogger log, ExecutionContext context)
+        public static void Run([TimerTrigger("0 30 8-20 * * *")]TimerInfo myTimer, ILogger log, ExecutionContext context)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
             var result = Assistant.ExecuteFromGitHub("tbarlow12", "task-board-assistant-policies", "hourly.json");
