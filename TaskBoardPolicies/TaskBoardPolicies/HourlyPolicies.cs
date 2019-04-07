@@ -11,18 +11,18 @@ using Microsoft.Extensions.Configuration;
 
 namespace TaskBoardPolicies
 {
-    public static class DailyPolicies
+    public static class HourlyPolicies
     {
         /// <summary>
         /// </summary>
         /// <param name="myTimer"></param>
         /// <param name="log"></param>
         /// <param name="context"></param>
-        [FunctionName("DailyPolicies")]
-        public static void Run([TimerTrigger("0 25 0 * * *")]TimerInfo myTimer, ILogger log, ExecutionContext context)
+        [FunctionName("HourlyPolicies")]
+        public static void Run([TimerTrigger("0 30 * * * *")]TimerInfo myTimer, ILogger log, ExecutionContext context)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-            var result = Assistant.ExecuteFromGitHub("tbarlow12", "task-board-assistant-policies", "daily.json");
+            var result = Assistant.ExecuteFromGitHub("tbarlow12", "task-board-assistant-policies", "hourly.json");
             log.LogInformation($"C# Timer trigger function finished at: {DateTime.Now}");
         }
     }
